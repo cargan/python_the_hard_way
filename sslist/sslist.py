@@ -25,10 +25,32 @@ class SingleLinkedList(object):
             self.begin.next = node
         else:
             self.end.next = node
+            self.end = node
 
     def pop(self):
         """Removes the last item and returns it."""
-        pass
+        node = None
+        # if self.count() == 0:
+        #     pass
+        # elif self.count() == 1:
+        #     node = self.begin
+        #     self.begin.next = None
+        #     self.begin = None
+        # elif self.count() == 2:
+        #     node = self.end
+        #     self.end = None
+        #     self.begin.next = None
+        # else:
+        node = self.end
+        next_node = self.begin.next
+        print (self.begin, self.end)
+        while next_node:
+            print ('next node value', next_node)
+            if next_node.next == node:
+                next_node.next = None
+                break
+        print ('pop node', node.value)
+        return node.value
 
     def shift(self, obj):
         """Another name for push."""
@@ -57,13 +79,12 @@ class SingleLinkedList(object):
         if self.begin and self.end is None:
             return 1
 
-
+        count = 1
         next_node = self.begin.next
-        count = 0
         while next_node:
             count += 1
             next_node = next_node.next
-        print ('counted_colors', count)
+        # print ('counted_colors', count)
         return count
 
 

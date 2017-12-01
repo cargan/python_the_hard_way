@@ -9,20 +9,27 @@ def test_push():
     assert colors.count() == 1
 
     colors.push("Ultramarine Blue")
+    assert colors.count() == 2
+
     colors.push("Jeans Blue")
-    assert colors.count() == 3
+    colors.push("Lavos Blue")
+    colors.push("Uolos Blue")
+    assert colors.count() == 5
 
     colors.push("Ultramarine Blue Evening")
-    # assert colors.count() == 4
+    assert colors.count() == 6
 
     colors.push("Ultramarine Blue Morning")
-    assert colors.count() == 4
+    assert colors.count() == 7
 
 
 def test_pop():
     colors = SingleLinkedList()
     colors.push("Magenta")
     colors.push("Alizarin")
+    colors.push("Miau qq")
+
+    assert colors.pop() == "Miau qq"
     assert colors.pop() == "Alizarin"
     assert colors.pop() == "Magenta"
     assert colors.pop() == None
@@ -100,4 +107,5 @@ def test_get():
     assert colors.get(0) == None
 
 
-test_push()
+# test_push()
+test_pop()
